@@ -19,7 +19,7 @@ extraMetadata:
   # falls back to package.json `name` ("mytonwallet") - strands existing desktop wallets.
   # `CFBundleName` has no say in either path. The user-visible name is `productName` above, which
   # never reaches the packaged package.json and is safe to change. Enforced by `config.test.ts`.
-  productName: "MyTonWallet"
+  productName: "Mochi"
 files:
   - "dist"
   - "package.json"

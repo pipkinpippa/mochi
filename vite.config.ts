@@ -51,7 +51,6 @@ import {
   SOLANA_TESTNET_RPC_URL,
   SSE_BRIDGE_URL,
   SUBPROJECT_URL_MASK,
-  TON_CONNECT_ANALYTICS_URL,
   TONAPIIO_MAINNET_URL,
   TONAPIIO_TESTNET_URL,
   TONCENTER_MAINNET_URL,
@@ -135,7 +134,6 @@ const cspConnectSrcHosts = Array.from(new Set([
   ensureTrailingSlash(SSE_BRIDGE_URL),
   MFA_API_BASE_URL,
   ensureTrailingSlash(PORTFOLIO_API_URL),
-  TON_CONNECT_ANALYTICS_URL,
 ])).join(' ');
 
 const cspImageSrcHosts = [
