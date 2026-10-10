@@ -50,7 +50,12 @@ export function vendoredModules(libDir: string): Plugin {
     transform: {
       filter: { id: { include: Object.keys(wrappers) } },
       handler(code, id) {
-        const { prologue, epilogue } = wrappers[id];
+        // Vite module IDs always use forward slashes, while `path.join` produces backslashes on Windows,
+        // so normalize before lookup (identity on POSIX). Without this the dev server crashes on Windows
+        // transforming any of the wrapped files.
+        const wrapper = wrappers[path.normalize(id)];
+        if (!wrapper) return undefined;
+        const { prologue, epilogue } = wrapper;
         // `null` keeps the incoming map, which stays valid because the original lines do not move
         // eslint-disable-next-line no-null/no-null
         return { code: `${prologue}${code}${epilogue}`, map: null };
